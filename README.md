@@ -4,8 +4,8 @@ Personal Codex and OpenCode instructions, skills, commands, plugins, and
 configuration-review workflows.
 
 The repository follows `main`. Third-party Codex skills remain pinned to exact
-commits and require an interactive diff review before their accepted pin is
-updated.
+commits and require an explicit interactive diff review before their accepted
+pin is updated.
 
 ## Install
 
@@ -26,8 +26,19 @@ two user-owned files.
 make update
 ```
 
-The update follows the checkout's configured upstream branch, reviews
-third-party skill changes, and repairs managed links.
+The update follows the checkout's configured upstream branch and repairs
+first-party managed links. It does not check, install, or repair third-party
+skills.
+
+## Update third-party skills
+
+```bash
+make update-skills
+```
+
+The command reports whether each configured third-party skill repository is
+current. When an update is available, it shows the diff for the selected skills
+and asks whether to apply that repository's update.
 
 ## Check
 

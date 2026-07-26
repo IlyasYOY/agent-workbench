@@ -399,7 +399,7 @@ review_and_update_skills_from_repo() {
     external_skills_validate_commit "$old_commit" || return 1
     external_skills_validate_commit "$new_commit" || return 1
     if [ "$old_commit" = "$new_commit" ]; then
-        debug "External skills already current for $repo at $old_commit"
+        success "External Codex skills are current for $repo"
         return 0
     fi
 

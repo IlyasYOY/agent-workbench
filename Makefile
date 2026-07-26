@@ -1,12 +1,15 @@
 SHELL_FILES := $(shell find sh -type f -name '*.sh' | sort)
 
-.PHONY: install update check check-shell check-python check-config
+.PHONY: install update update-skills check check-shell check-python check-config
 
 install:
 	@./sh/install.sh
 
 update:
 	@./sh/update.sh
+
+update-skills:
+	@./sh/update-skills.sh
 
 check: check-shell check-python check-config
 
