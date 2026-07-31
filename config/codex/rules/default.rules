@@ -47,15 +47,9 @@ prefix_rule(
 )
 
 prefix_rule(
-    pattern = ["go", "test"],
+    pattern = ["go"],
     decision = "prompt",
-    justification = "Go tests execute project code and may touch caches or external dependencies.",
-)
-
-prefix_rule(
-    pattern = ["go", ["run", "get", "install", "mod"]],
-    decision = "prompt",
-    justification = "Go dependency/tool commands may use network access and write outside normal source edits.",
+    justification = "Go may execute project code and may touch caches or external dependencies.",
 )
 
 prefix_rule(
