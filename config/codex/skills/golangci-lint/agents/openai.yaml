@@ -1,0 +1,6 @@
+interface:
+  display_name: "GolangCI Lint"
+  short_description: "Triage and fix Go lint findings"
+  default_prompt: "Use $golangci-lint to lint and iteratively fix the current Go project."
+policy:
+  allow_implicit_invocation: false
