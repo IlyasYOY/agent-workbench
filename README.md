@@ -1,7 +1,6 @@
 # agent-workbench
 
-Personal Codex and OpenCode instructions, skills, commands, plugins, and
-configuration-review workflows.
+Personal Codex instructions, skills, rules, and configuration-review workflows.
 
 The repository follows `main`. Third-party Codex skills remain pinned to exact
 commits and require an explicit interactive diff review before their accepted
@@ -13,12 +12,10 @@ pin is updated.
 make install
 ```
 
-Installation links managed instructions, rules, skills, commands, and plugins
-into `~/.codex` and `~/.config/opencode`. It does not edit
-`~/.codex/config.toml` or `~/.config/opencode/opencode.json`.
+Installation links managed instructions, rules, and skills into `~/.codex`. It
+does not edit `~/.codex/config.toml`.
 
-Use the repository-local `$setup-codex` and `$setup-opencode` skills for those
-two user-owned files.
+Use the repository-local `$setup-codex` skill for that user-owned file.
 
 ## Update
 

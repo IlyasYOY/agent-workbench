@@ -25,4 +25,3 @@ check-python:
 
 check-config:
 	@python3 -c 'import pathlib, tomllib; tomllib.loads(pathlib.Path(".agents/skills/setup-codex/references/config.toml").read_text())'
-	@jq empty .agents/skills/setup-opencode/references/opencode.json

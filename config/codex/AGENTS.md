@@ -41,9 +41,9 @@ repo unless the prompt names another path.
 
 - Agent workbench: `~/Projects/IlyasYOY/agent-workbench`
 
-When the user asks to work on Codex/OpenCode config references, custom skills,
-commands, plugins, or personal agent instructions, treat the target as the
-agent-workbench repo unless the prompt names another path.
+When the user asks to work on Codex config references, custom skills, commands,
+plugins, or personal agent instructions, treat the target as the agent-workbench
+repo unless the prompt names another path.
 
 - KB store: `~/Projects/kb-store`
 
