@@ -45,22 +45,6 @@ generate_memories = true
 use_memories = true
 disable_on_external_context = false
 
-[mcp_servers.singularity]
-enabled = true
-url = "https://mcp.singularity-app.com/mcp"
-
-[mcp_servers.t-invest]
-command = "{{HOME}}/go/bin/t-invest-mcp"
-env_vars = [
-    "T_INVEST_TOKEN",
-    "T_INVEST_ENV",
-    "T_INVEST_ACCOUNT_ID",
-    "T_INVEST_TIMEOUT",
-    "T_INVEST_MAX_RESPONSE_BYTES",
-    "T_INVEST_APP_NAME",
-]
-startup_timeout_sec = 10
-
 [projects."{{DOTFILES_DIR}}"]
 trust_level = "trusted"
 
