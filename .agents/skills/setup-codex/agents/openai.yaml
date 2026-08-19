@@ -1,7 +1,7 @@
 interface:
   display_name: "Setup Codex"
-  short_description: "Configure Codex from agent-workbench safely"
-  default_prompt: "Use $setup-codex to review and configure my Codex settings."
+  short_description: "Reconcile Codex config and remote skills safely"
+  default_prompt: "Use $setup-codex to review and reconcile my Codex config and remote-skill policy."
 
 policy:
   allow_implicit_invocation: false

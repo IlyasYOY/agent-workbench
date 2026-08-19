@@ -40,6 +40,9 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
+
       - name: Install check tools
         run: |
           sudo apt-get update

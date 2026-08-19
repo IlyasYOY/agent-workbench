@@ -1,3 +1,4 @@
+# Core settings
 model = "gpt-5.6-sol"
 personality = "pragmatic"
 model_reasoning_effort = "medium"
@@ -7,6 +8,39 @@ approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 service_tier = "default"
 suppress_unstable_features_warning = true
+
+# Safety and execution
+
+[sandbox_workspace_write]
+network_access = false
+writable_roots = [
+    "{{DOTFILES_DIR}}",
+    "{{NVIM_WORKBENCH_DIR}}",
+    "{{AGENT_WORKBENCH_DIR}}",
+    "{{KB_DIR}}",
+]
+
+# Features and memory
+
+[features]
+# These flags do not uninstall account plugins or hide skills already loaded
+# into the current Codex session.
+plugins = true
+apps = false
+remote_plugin = false
+default_mode_request_user_input = true
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
+disable_on_external_context = false
+
+# Interface
+
+[notice]
+hide_rate_limit_model_nudge = true
+fast_default_opt_out = true
 
 [tui]
 notifications = true
@@ -22,40 +56,15 @@ status_line = [
 session_picker_view = "comfortable"
 pet = "disabled"
 
-[notice]
-hide_rate_limit_model_nudge = true
-fast_default_opt_out = true
-
-[sandbox_workspace_write]
-network_access = false
-writable_roots = [
-    "{{DOTFILES_DIR}}",
-    "{{NVIM_WORKBENCH_DIR}}",
-    "{{AGENT_WORKBENCH_DIR}}",
-    "{{KB_DIR}}",
-]
-
-[features]
-js_repl = false
-default_mode_request_user_input = true
-memories = true
-
-[memories]
-generate_memories = true
-use_memories = true
-disable_on_external_context = false
-
-[projects."{{DOTFILES_DIR}}"]
-trust_level = "trusted"
-
-[projects."{{NVIM_WORKBENCH_DIR}}"]
-trust_level = "trusted"
+# Trusted projects
 
 [projects."{{AGENT_WORKBENCH_DIR}}"]
 trust_level = "trusted"
-
+[projects."{{DOTFILES_DIR}}"]
+trust_level = "trusted"
 [projects."{{KB_DIR}}"]
 trust_level = "trusted"
-
+[projects."{{NVIM_WORKBENCH_DIR}}"]
+trust_level = "trusted"
 [projects."{{PERSONAL_PROJECTS_DIR}}"]
 trust_level = "trusted"
