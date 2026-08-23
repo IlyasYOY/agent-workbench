@@ -9,6 +9,13 @@ REFERENCE = Path(__file__).parents[1] / "references" / "config.toml"
 
 
 class ReferenceConfigTest(unittest.TestCase):
+    def test_gpt_5_6_uses_extended_context_with_catalog_compaction(self) -> None:
+        config = tomllib.loads(REFERENCE.read_text())
+
+        self.assertEqual(config["model"], "gpt-5.6-sol")
+        self.assertEqual(config["model_context_window"], 872_000)
+        self.assertNotIn("model_auto_compact_token_limit", config)
+
     def test_plugin_feature_policy_keeps_bundled_plugins_without_apps(self) -> None:
         config = tomllib.loads(REFERENCE.read_text())
 
