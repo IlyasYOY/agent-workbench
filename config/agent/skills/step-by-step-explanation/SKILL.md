@@ -1,9 +1,10 @@
 ---
 name: step-by-step-explanation
 description: >
-  Code immersion: walks the user through how a project, component, or feature
-  works, step by step. Use when the user wants to understand how code works or
-  asks for a walkthrough.
+  Code immersion that explains how a project, component, or feature works, step
+  by step. Use only when the user explicitly asks for an explanation or
+  walkthrough. Do not use for implementation, debugging, review, research, or
+  status reporting unless an explanation is explicitly requested.
 ---
 
 # Step-by-Step Explanation
