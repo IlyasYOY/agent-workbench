@@ -73,6 +73,10 @@ class InstallTest(unittest.TestCase):
                 (codex_home / "skills" / "IlyasYOY" / "git-commit").readlink(),
                 REPO_ROOT / "config" / "agent" / "skills" / "git-commit",
             )
+            self.assertEqual(
+                (codex_home / "skills" / "IlyasYOY" / "vim-slides").readlink(),
+                REPO_ROOT / "config" / "agent" / "skills" / "vim-slides",
+            )
 
 
 if __name__ == "__main__":

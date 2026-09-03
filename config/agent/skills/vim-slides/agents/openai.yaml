@@ -1,0 +1,6 @@
+interface:
+  display_name: "Vim Slides"
+  short_description: "Create Markdown slide decks for Neovim"
+  default_prompt: "Use $vim-slides to create a Neovim Markdown presentation repository."
+policy:
+  allow_implicit_invocation: false
