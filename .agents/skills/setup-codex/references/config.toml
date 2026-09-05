@@ -8,10 +8,10 @@ approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 service_tier = "default"
 suppress_unstable_features_warning = true
-# Opt in to the maximum extended context exposed by Codex for GPT-5.6.
-model_context_window = 872000
 
 # Safety and execution
+# Opt in to the maximum extended context exposed by Codex for GPT-5.6.
+# model_context_window = 872000
 
 [sandbox_workspace_write]
 network_access = false
@@ -51,8 +51,6 @@ notification_condition = "always"
 status_line = [
     "model-with-reasoning",
     "current-dir",
-    "five-hour-limit",
-    "weekly-limit",
     "context-remaining",
 ]
 session_picker_view = "comfortable"

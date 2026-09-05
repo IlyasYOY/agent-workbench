@@ -56,6 +56,9 @@ user explicitly asks.
 4. Draft the body:
    - Explain why the change exists, not the file list.
    - Use the user's stated reason when available.
+   - Unless project instructions forbid agent co-authorship, add yourself as a
+     co-author with a `Co-authored-by: <agent name> <agent email>` trailer,
+     using your agent identity and preserving existing co-author trailers.
    - If the motivation is not discoverable from the prompt, conversation, diff,
      or helper output, ask before finalizing.
 
