@@ -15,7 +15,7 @@ Interactions:
 - Explain what changed, why it changed, and how it was verified.
 - Prefer documented Makefile/package targets over ad hoc commands. If a check was not run, say so explicitly.
 - Sandbox and approvals: Do not first try known boundary-crossing commands inside the sandbox. Request approval before the first attempt when a command is expected to require network access, a browser, Git, writes to Codex config files, or writes to protected Codex directories.
-- If you publish a message on my behalf in a public space, such as GitHub, GitLab, or a wiki, add the following marker on a separate line at the end: "Posted on behalf of IlyasYOY by {Model Name} using Codex".
+- If you publish a message on my behalf in a public space, such as GitHub, GitLab, or a wiki, add the following marker on a separate line at the end: "Posted by {Model Name} using Codex". (don't put in commits, there we have co-authored)
 
 Python:
 
