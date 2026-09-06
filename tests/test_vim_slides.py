@@ -9,7 +9,7 @@ import unittest
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_ROOT = REPO_ROOT / "config" / "agent" / "skills" / "vim-slides"
+SKILL_ROOT = REPO_ROOT / "config" / "codex" / "skills" / "vim-slides"
 INIT_SCRIPT = SKILL_ROOT / "scripts" / "init_deck.py"
 BUILD_SCRIPT = SKILL_ROOT / "scripts" / "build_slides.py"
 

@@ -22,12 +22,10 @@ install_codex() {
         "$LEGACY_DOTFILES_DIR/config/codex/rules/default.rules"
 
     link_skill_tree \
-        "$AGENT_WORKBENCH_DIR/config/agent/skills" \
-        "$namespace" \
-        "$LEGACY_DOTFILES_DIR/config/agent/skills"
-    link_skill_tree \
         "$AGENT_WORKBENCH_DIR/config/codex/skills" \
         "$namespace" \
+        "$AGENT_WORKBENCH_DIR/config/agent/skills" \
+        "$LEGACY_DOTFILES_DIR/config/agent/skills" \
         "$LEGACY_DOTFILES_DIR/config/codex/skills"
     prune_stale_skill_links "$namespace"
 

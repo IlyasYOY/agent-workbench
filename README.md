@@ -17,6 +17,21 @@ does not edit `~/.codex/config.toml`.
 
 Use the repository-local `$setup-codex` skill for that user-owned file.
 
+All first-party installable skills live under `config/codex/skills`.
+They and the repository-local `setup-codex` skill are explicit-only: invoke them
+with `$skill-name`; Codex does not automatically select them. Their
+`agents/openai.yaml` files set `policy.allow_implicit_invocation: false`.
+
+Installation migrates managed links from the former shared skills directory
+and the old dotfiles layout, preserving unrelated files and links. To apply
+only first-party links without processing external skills, run:
+
+```bash
+AGENT_WORKBENCH_SKIP_EXTERNAL_SKILLS=1 make install
+```
+
+If skill changes do not appear, restart Codex and use a new session.
+
 ## Update
 
 ```bash

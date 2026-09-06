@@ -74,8 +74,9 @@ replace_managed_symlink() {
 link_skill_tree() {
     local source_root="$1"
     local destination_root="$2"
-    local legacy_root="$3"
-    local skill_file skill_dir skill_name
+    shift 2
+    local skill_file skill_dir skill_name legacy_root
+    local -a link_args
 
     mkdir -p "$destination_root"
     find "$source_root" -mindepth 2 -maxdepth 2 -name SKILL.md -type f -print |
@@ -83,10 +84,11 @@ link_skill_tree() {
         while IFS= read -r skill_file; do
             skill_dir=$(dirname "$skill_file")
             skill_name=$(basename "$skill_dir")
-            replace_managed_symlink \
-                "$skill_dir" \
-                "$destination_root/$skill_name" \
-                "$legacy_root/$skill_name"
+            link_args=("$skill_dir" "$destination_root/$skill_name")
+            for legacy_root in "$@"; do
+                link_args+=("$legacy_root/$skill_name")
+            done
+            replace_managed_symlink "${link_args[@]}"
         done
 }
 

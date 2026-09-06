@@ -37,7 +37,7 @@ user explicitly asks.
    is understood; unstaged changes are ignored unless the user asked for them.
 
 2. Read recent commit style:
-   - Prefer `python3 -B config/agent/skills/git-commit/scripts/commit_context.py --repo . --limit 12`.
+   - Prefer `python3 -B config/codex/skills/git-commit/scripts/commit_context.py --repo . --limit 12`.
    - If the helper is unavailable, use `git log` for recent subjects.
 
    Completion criterion: the draft can match observed type/scope/ticket/body
@@ -185,7 +185,7 @@ message used, checks run or skipped, and any remaining local changes.
 Run the helper from the repository root:
 
 ```bash
-python3 -B config/agent/skills/git-commit/scripts/commit_context.py --repo . --limit 12
+python3 -B config/codex/skills/git-commit/scripts/commit_context.py --repo . --limit 12
 ```
 
 Useful options:
