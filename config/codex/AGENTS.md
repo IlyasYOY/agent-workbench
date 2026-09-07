@@ -17,6 +17,12 @@ Interactions:
 - Sandbox and approvals: Do not first try known boundary-crossing commands inside the sandbox. Request approval before the first attempt when a command is expected to require network access, a browser, Git, writes to Codex config files, or writes to protected Codex directories.
 - If you publish a message on my behalf in a public space, such as GitHub, GitLab, or a wiki, add the following marker on a separate line at the end: "Posted by {Model Name} using Codex". (don't put in commits, there we have co-authored)
 
+Testing:
+
+- Prefer black-box tests through the API of a service, package, or function. That API should be sufficient to test a change in isolation.
+- Verify observable behavior and contracts, not private state, implementation details, or internal call sequences. Avoid white-box tests and tests that mirror the implementation.
+- If isolated testing requires reaching into internals, first reconsider the API boundaries and explicit dependencies instead of adding test-only access to private state.
+
 Python:
 
 - Use `uv` for Python scripts and ad hoc Python dependencies instead of installing packages into the Homebrew or system Python environment.
