@@ -97,7 +97,7 @@ jobs:
           echo "tag=$next_tag" >> "$GITHUB_OUTPUT"
 
       - name: Check
-        run: make check
+        run: make check NVIM_VERSION=v0.12.4
 
       - name: Tag and push
         shell: bash
