@@ -28,36 +28,6 @@ Python:
 - Use `uv` for Python scripts and ad hoc Python dependencies instead of installing packages into the Homebrew or system Python environment.
 - For one-off dependencies, use: `uv run --with <package> python <script.py>`
 
-## Subagents
-
-Use subagents proactively when the task contains two or more independent,
-bounded workstreams that can run in parallel.
-
-Prefer delegation for:
-
-- Codebase exploration and research.
-- Independent implementation areas.
-- Running and analyzing tests.
-- Code review and verification.
-
-Run independent work in parallel when it improves speed or quality.
-Avoid subagents for trivial tasks or when coordination would cost more than
-doing the work directly.
-
-Avoid multiple agents editing overlapping files concurrently.
-Wait for delegated work and integrate the results before finishing.
-
-### Model and reasoning selection
-
-For each subagent, explicitly choose an available model and supported reasoning
-effort suited to the task instead of automatically inheriting the parent settings.
-Prefer the least costly option that can reliably meet the required quality.
-
-Use low reasoning for straightforward tasks, medium for multi-step work, and high
-or above when complexity or risk warrants it. Escalate the model or reasoning
-effort if results are insufficient. Use the current tool's available model IDs
-and supported settings; these examples apply only when available.
-
 ## Personal Projects
 
 Canonical personal repositories:
