@@ -34,5 +34,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends jq shellcheck
 
+      - name: Cache Neovim
+        uses: actions/cache@v5
+        with:
+          path: .test-deps
+          key: nvim-${{ runner.os }}-${{ runner.arch }}-v0.12.4-${{ hashFiles('Makefile') }}
+
       - name: Check
-        run: make check
+        run: make check NVIM_VERSION=v0.12.4

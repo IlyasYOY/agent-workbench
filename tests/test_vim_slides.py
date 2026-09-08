@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -12,6 +13,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILL_ROOT = REPO_ROOT / "config" / "codex" / "skills" / "vim-slides"
 INIT_SCRIPT = SKILL_ROOT / "scripts" / "init_deck.py"
 BUILD_SCRIPT = SKILL_ROOT / "scripts" / "build_slides.py"
+NVIM = os.environ.get("NVIM", "nvim")
 
 
 def load_build_module():
@@ -168,7 +170,7 @@ vim.fn.writefile({{ "passed" }}, result_file)
 
             completed = subprocess.run(
                 [
-                    "nvim",
+                    NVIM,
                     "--headless",
                     "-u",
                     "NONE",
@@ -258,7 +260,7 @@ vim.fn.writefile({{ "passed" }}, result_file)
 
             completed = subprocess.run(
                 [
-                    "nvim",
+                    NVIM,
                     "--headless",
                     "-u",
                     "NONE",
