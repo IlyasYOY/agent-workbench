@@ -31,12 +31,7 @@ plugins = true
 apps = false
 remote_plugin = false
 default_mode_request_user_input = true
-memories = true
-
-[memories]
-generate_memories = true
-use_memories = true
-disable_on_external_context = false
+memories = false
 
 # Interface
 
