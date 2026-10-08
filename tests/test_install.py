@@ -29,8 +29,10 @@ class InstallTest(unittest.TestCase):
             legacy_opencode.mkdir(parents=True)
             codex_home.mkdir(parents=True)
             opencode_home.mkdir(parents=True)
-            (legacy_agent / "grilling").mkdir()
-            (legacy_agent / "grilling" / "SKILL.md").write_text("---\nname: grilling\n---\n")
+            (legacy_agent / "writing-great-skills").mkdir()
+            (legacy_agent / "writing-great-skills" / "SKILL.md").write_text(
+                "---\nname: writing-great-skills\n---\n"
+            )
 
             (codex_home / "AGENTS.md").symlink_to(legacy_codex / "AGENTS.md")
             (opencode_home / "commands").symlink_to(legacy_opencode / "commands")
@@ -43,7 +45,7 @@ class InstallTest(unittest.TestCase):
             for index, skill_name in enumerate(self._installed_skill_names()):
                 if index == 0:
                     old_root = Path(os.path.realpath(REPO_ROOT / "config" / "agent" / "skills"))
-                elif skill_name == "golangci-lint":
+                elif index == 1:
                     old_root = legacy_codex / "skills"
                 else:
                     old_root = legacy_agent
@@ -97,7 +99,7 @@ class InstallTest(unittest.TestCase):
             home = root / "home"
             namespace = home / ".codex" / "skills" / "IlyasYOY"
             namespace.mkdir(parents=True)
-            (namespace / "git-commit").write_text("user-owned\n")
+            (namespace / "step-by-step-explanation").write_text("user-owned\n")
             foreign_target = root / "foreign-skill"
             (namespace / "vim-slides").symlink_to(foreign_target)
             environment = os.environ.copy()
@@ -120,7 +122,7 @@ class InstallTest(unittest.TestCase):
                 text=True,
             )
 
-            self.assertEqual((namespace / "git-commit").read_text(), "user-owned\n")
+            self.assertEqual((namespace / "step-by-step-explanation").read_text(), "user-owned\n")
             self.assertEqual((namespace / "vim-slides").readlink(), foreign_target)
 
     def test_installer_creates_fresh_skill_links(self) -> None:
@@ -154,6 +156,51 @@ class InstallTest(unittest.TestCase):
                     (REPO_ROOT / "config" / "codex" / "skills" / skill_name).resolve(),
                 )
 
+    def test_installer_removes_retired_managed_skill_links(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            home = root / "home"
+            namespace = home / ".codex" / "skills" / "IlyasYOY"
+            namespace.mkdir(parents=True)
+            retired_skill_names = ("git-commit", "golangci-lint", "grilling")
+            for skill_name in retired_skill_names:
+                (namespace / skill_name).symlink_to(
+                    (REPO_ROOT / "config" / "codex" / "skills" / skill_name).resolve()
+                )
+            foreign_target = root / "foreign-skill"
+            (namespace / "foreign").symlink_to(foreign_target)
+            (namespace / "regular-file").write_text("keep\n")
+            environment = os.environ.copy()
+            environment.update(
+                {
+                    "HOME": str(home),
+                    "CODEX_HOME": str(home / ".codex"),
+                    "ILYASYOY_PERSONAL_PROJECTS_DIR": str(home / "Projects" / "IlyasYOY"),
+                    "ILYASYOY_DOTFILES_DIR": str(home / "Projects" / "IlyasYOY" / "dotfiles"),
+                    "AGENT_WORKBENCH_SKIP_EXTERNAL_SKILLS": "1",
+                }
+            )
+
+            for _ in range(2):
+                subprocess.run(
+                    [str(REPO_ROOT / "sh" / "install.sh")],
+                    cwd=REPO_ROOT,
+                    env=environment,
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                )
+
+            for skill_name in retired_skill_names:
+                self.assertFalse(os.path.lexists(namespace / skill_name), skill_name)
+            self.assertEqual((namespace / "foreign").readlink(), foreign_target)
+            self.assertEqual((namespace / "regular-file").read_text(), "keep\n")
+            for skill_name in self._installed_skill_names():
+                self.assertEqual(
+                    (namespace / skill_name).readlink(),
+                    (REPO_ROOT / "config" / "codex" / "skills" / skill_name).resolve(),
+                )
+
     def test_all_owned_skills_are_explicit_only(self) -> None:
         metadata_paths = [
             REPO_ROOT / "config" / "codex" / "skills" / skill_name / "agents" / "openai.yaml"
@@ -166,9 +213,6 @@ class InstallTest(unittest.TestCase):
     @staticmethod
     def _installed_skill_names() -> tuple[str, ...]:
         return (
-            "git-commit",
-            "golangci-lint",
-            "grilling",
             "step-by-step-explanation",
             "vim-slides",
             "writing-great-skills",

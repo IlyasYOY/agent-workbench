@@ -83,8 +83,6 @@ Ask through the `question` tool what's next:
 
 - **All clear** — immersion complete.
 - **Need to dig deeper** — return to the details.
-- **Run grilling** — if the `grilling` skill is available, offer a deep
-  interrogation to stress-test the user's understanding.
 - **Save a note** — offer to save a summary with code references for future
   reference without AI. If agreed — compile the summary and offer to save it
   in kb-store or as a local file.
