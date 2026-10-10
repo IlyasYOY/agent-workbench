@@ -32,6 +32,30 @@ AGENT_WORKBENCH_SKIP_EXTERNAL_SKILLS=1 make install
 
 If skill changes do not appear, restart Codex and use a new session.
 
+## Managed skills
+
+The first-party installable skill is `step-by-step-explanation`.
+`vim-slides` and `writing-great-skills` are retired; installation removes their
+stale managed links while preserving user-owned entries.
+
+`config/codex/external-skills.conf` selects upstream skills at accepted commits:
+
+- **diffusionstudio/lottie**: `text-to-lottie`.
+- **mattpocock/skills — engineering**: `retro`, `diagnosing-bugs`,
+  `codebase-design`, `domain-modeling`, `pr`, `improve-codebase-architecture`.
+- **mattpocock/skills — productivity**: `writing-for-agents`, `handoff`,
+  `grilling`, `grill-me`, `to-questionnaire`.
+
+External skills retain their upstream content and invocation policy.
+Invoke `retro`, `improve-codebase-architecture`, `handoff`, `grill-me`, and
+`to-questionnaire` explicitly with `$skill-name`; the other selected Matt skills
+allow automatic selection. `writing-for-agents` replaces the retired writing
+reference. `pr` shapes a PR body; it does not open a pull request.
+
+The remaining Matt skills are excluded. Installation uses the existing pinned
+snapshot mechanism, without a submodule or local upstream patches. Skill
+instructions do not grant additional permission to commit or publish.
+
 ## Update
 
 ```bash

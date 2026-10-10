@@ -162,7 +162,9 @@ class InstallTest(unittest.TestCase):
             home = root / "home"
             namespace = home / ".codex" / "skills" / "IlyasYOY"
             namespace.mkdir(parents=True)
-            retired_skill_names = ("git-commit", "golangci-lint", "grilling")
+            retired_skill_names = (
+                "git-commit", "golangci-lint", "grilling", "vim-slides", "writing-great-skills"
+            )
             for skill_name in retired_skill_names:
                 (namespace / skill_name).symlink_to(
                     (REPO_ROOT / "config" / "codex" / "skills" / skill_name).resolve()
@@ -214,8 +216,6 @@ class InstallTest(unittest.TestCase):
     def _installed_skill_names() -> tuple[str, ...]:
         return (
             "step-by-step-explanation",
-            "vim-slides",
-            "writing-great-skills",
         )
 
 
