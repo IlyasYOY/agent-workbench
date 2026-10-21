@@ -37,8 +37,6 @@ not operate ChatGPT connectors and does not delete plugin caches.
      of the agent-workbench repository when it is unset.
    - `{{NVIM_WORKBENCH_DIR}}`: `$ILYASYOY_NVIM_WORKBENCH_DIR`, or the
      `nvim-workbench` sibling when it is unset.
-   - `{{KB_DIR}}`: `$ILYASYOY_KB_STORE_DIR`, or `~/Projects/kb-store` when it
-     is unset.
    - `{{PERSONAL_PROJECTS_DIR}}`: the parent directory of the
      agent-workbench root.
 4. Resolve the target as `$CODEX_HOME/config.toml`, defaulting `CODEX_HOME` to

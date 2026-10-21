@@ -19,7 +19,6 @@ writable_roots = [
     "{{DOTFILES_DIR}}",
     "{{NVIM_WORKBENCH_DIR}}",
     "{{AGENT_WORKBENCH_DIR}}",
-    "{{KB_DIR}}",
 ]
 
 # Features and memory
@@ -56,8 +55,6 @@ pet = "disabled"
 [projects."{{AGENT_WORKBENCH_DIR}}"]
 trust_level = "trusted"
 [projects."{{DOTFILES_DIR}}"]
-trust_level = "trusted"
-[projects."{{KB_DIR}}"]
 trust_level = "trusted"
 [projects."{{NVIM_WORKBENCH_DIR}}"]
 trust_level = "trusted"

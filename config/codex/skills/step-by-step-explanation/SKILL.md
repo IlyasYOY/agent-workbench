@@ -85,6 +85,6 @@ Ask through the `question` tool what's next:
 - **Need to dig deeper** — return to the details.
 - **Save a note** — offer to save a summary with code references for future
   reference without AI. If agreed — compile the summary and offer to save it
-  in kb-store or as a local file.
+  as a local file.
 
 Completion: the user chose next steps or confirmed completion.

@@ -35,4 +35,3 @@ Canonical personal repositories:
 - `~/Projects/IlyasYOY/dotfiles`: Shell config, workstation bootstrap, Homebrew manifests, and terminal or desktop config.
 - `~/Projects/IlyasYOY/nvim-workbench`: Neovim configuration, snippets, personal plugin registration, or Neovim runtime checks. Treat the nvim-workbench repo as the target unless the prompt names another path.
 - `~/Projects/IlyasYOY/agent-workbench`: Codex config references, custom skills, commands, plugins, or personal agent instructions. Treat the agent-workbench repo as the target unless the prompt names another path.
-- `~/Projects/kb-store`: Local storage for creating, editing, searching, reorganizing, summarizing, saving, capturing, or persisting notes for any project. Treat the kb-store repo as the target unless the prompt names another path.
