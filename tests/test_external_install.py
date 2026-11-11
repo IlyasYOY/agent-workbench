@@ -107,7 +107,7 @@ class ExternalInstallTest(unittest.TestCase):
             self.install()
             self.assertEqual(
                 {entry.name for entry in self.namespace.iterdir()},
-                MATT_SKILLS | {"step-by-step-explanation", "text-to-lottie", "foreign", "user-file"},
+                MATT_SKILLS | {"orchestrator", "step-by-step-explanation", "vim-review", "text-to-lottie", "foreign", "user-file"},
             )
             for path in self.paths:
                 installed = self.namespace / Path(path).name

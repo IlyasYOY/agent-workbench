@@ -34,7 +34,17 @@ If skill changes do not appear, restart Codex and use a new session.
 
 ## Managed skills
 
-The first-party installable skill is `step-by-step-explanation`.
+The first-party installable skills are `step-by-step-explanation`, `vim-review`,
+and `orchestrator`. Invoke `$vim-review` to open the working tree in Neovim
+Fugitive in a new tmux pane to the right of Codex.
+
+Invoke `$orchestrator` to keep the current chat coordinating
+large tasks: delegate most execution, obtain independent review, and track
+verified results in `_orchestration/<task-slug>/state.md` in the task workspace.
+The role remains active until explicitly disabled. Separate supervised Codex
+chats are proposed for agreement before creation. Workers prefer `gpt-6.1-sol`
+with reasoning selected for the task when supported; parent and global settings
+remain unchanged.
 `vim-slides` and `writing-great-skills` are retired; installation removes their
 stale managed links while preserving user-owned entries.
 

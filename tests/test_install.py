@@ -99,7 +99,8 @@ class InstallTest(unittest.TestCase):
             home = root / "home"
             namespace = home / ".codex" / "skills" / "IlyasYOY"
             namespace.mkdir(parents=True)
-            (namespace / "step-by-step-explanation").write_text("user-owned\n")
+            for skill_name in self._installed_skill_names():
+                (namespace / skill_name).write_text("user-owned\n")
             foreign_target = root / "foreign-skill"
             (namespace / "vim-slides").symlink_to(foreign_target)
             environment = os.environ.copy()
@@ -122,7 +123,8 @@ class InstallTest(unittest.TestCase):
                 text=True,
             )
 
-            self.assertEqual((namespace / "step-by-step-explanation").read_text(), "user-owned\n")
+            for skill_name in self._installed_skill_names():
+                self.assertEqual((namespace / skill_name).read_text(), "user-owned\n")
             self.assertEqual((namespace / "vim-slides").readlink(), foreign_target)
 
     def test_installer_creates_fresh_skill_links(self) -> None:
@@ -215,7 +217,9 @@ class InstallTest(unittest.TestCase):
     @staticmethod
     def _installed_skill_names() -> tuple[str, ...]:
         return (
+            "orchestrator",
             "step-by-step-explanation",
+            "vim-review",
         )
 
 
